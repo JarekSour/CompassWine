@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-navbar color="wine" style="border-top: 4px solid white;">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <div style="display: inline-flex;">
+                <img src="assets/images/icon.png" height="30" style="margin: 8px 15px 0 0;">
+                <p style="height: 0px;margin-top: 12px;">{{typeXL}}</p>
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div style="height: 100%;width: 100%;" [hidden]="tab != 1">
+        <div id="map" style="display: block;height: 100%;width: 100%;"></div>
+    </div>
+    <div [hidden]="tab != 2" style="padding: 20px">
+        <hr>
+        <div style="display: flex;">
+            <img src="assets/images/ic_place.png" height="30">
+            <p style="margin: 4px 0 0 10px;font-size: 20px;">{{nameValley}}</p>
+        </div>
+        <hr>
+        <div *ngIf="json == 0">
+            <p style="color: gray;text-align: center;padding: 19px 10px;">No hay lugares</p>
+        </div>
+        <section *ngFor="let item of json">
+            <ion-card>
+                <ion-card-content>
+                    <div style="display: flex;">
+                        <div>
+                            <img *ngIf="type == 'vinas' &amp;&amp; item.promoted == 1" src="assets/images/ic_promoted2.png" style="width: 30px;">
+                            <img *ngIf="type == 'vinas' &amp;&amp; item.promoted == 0" src="assets/images/ic_promoted1.png" style="width: 30px;">
+                        </div>
+                        <div style="flex-grow: 1;margin-left: 8px;" (click)="showDetail(item)">
+                            <p [style.color]="item.promoted == 1 ? '#0560da': '#a7225b'">{{item.name}}</p>
+                            <p>{{item.address}}</p>
+                            <p>{{item.phone}}</p>
+                        </div>
+                        <div (click)="tab = 1">
+                            <img *ngIf="item.promoted == 1" src="assets/images/map_promoted.png" style="width: 50px;">
+                            <img *ngIf="item.promoted == 0" src="assets/images/map.png" style="width: 50px;">
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </section>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar style="padding: 0;">
+        <div style="display: flex;">
+            <a class="text-center img-footer" [ngClass]="tab == 1 ? 'img-footer-active':''" (click)="tab = 1">
+                <img src="assets/images/map.png" width="60" style="padding: 5px;">
+            </a>
+            <a class="text-center img-footer" [ngClass]="tab == 2 ? 'img-footer-active':''" (click)="tab = 2">
+                <img src="assets/images/icon_places.png" width="60" style="padding: 5px;">
+            </a>
+        </div>
+    </ion-toolbar>
+</ion-footer>

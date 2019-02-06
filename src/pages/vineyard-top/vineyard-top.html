@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="wine" style="border-top: 4px solid white;">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <div style="display: inline-flex;">
+                <img src="assets/images/icon.png" height="30" style="margin: 8px 15px 0 0;">
+                <p style="height: 0px;margin-top: 12px;">TOP TEN VIÑAS</p>
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding style="background-color: transparent;">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content>
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <p style="margin: 0 10px 0 0;text-align: right;color: #a8275fe8;">Desliza hacia bajo para actualizar</p>
+    <section *ngFor="let item of topTen">
+        <ion-card (click)="showVineyard(item)">
+            <ion-card-header style="display: flex;padding: 6px;">
+                <img [src]="item.promoted == 0 ? 'assets/images/ic_promoted1.png':'assets/images/ic_promoted2.png'" style="width: 24px;height: 24px">&nbsp;&nbsp;
+                <span style="margin-top: 2px;flex-grow: 1;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{item.name}}</span>
+                <div class="cup">
+                    <img [src]="item.rating == 0.5 ? 'assets/images/rating_middle.png': item.rating > 0.5 ? 'assets/images/rating_full.png' : 'assets/images/rating_empty.png'"
+                        style="width: 13px;">
+                    <img [src]="item.rating == 1.5 ? 'assets/images/rating_middle.png': item.rating > 1.5 ? 'assets/images/rating_full.png' : 'assets/images/rating_empty.png'"
+                        style="width: 13px;">
+                    <img [src]="item.rating == 2.5 ? 'assets/images/rating_middle.png': item.rating > 2.5 ? 'assets/images/rating_full.png' : 'assets/images/rating_empty.png'"
+                        style="width: 13px;">
+                    <img [src]="item.rating == 3.5 ? 'assets/images/rating_middle.png': item.rating > 3.5 ? 'assets/images/rating_full.png' : 'assets/images/rating_empty.png'"
+                        style="width: 13px;">
+                    <img [src]="item.rating == 4.5 ? 'assets/images/rating_middle.png': item.rating > 4.5 ? 'assets/images/rating_full.png' : 'assets/images/rating_empty.png'"
+                        style="width: 13px;">
+                </div>
+            </ion-card-header>
+            <img [src]="item.picture_1" (error)="errorHandler($event)">
+        </ion-card>
+    </section>
+</ion-content>

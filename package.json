@@ -9,7 +9,10 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "release": " ionic cordova build --release android",
+    "jar": "jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore compasswine.jks android-release-unsigned.apk alias_name",
+    "zip": "zipalign -v 4 android-release-unsigned.apk compasswine.apk"
   },
   "dependencies": {
     "@angular/animations": "5.2.9",
@@ -21,19 +24,75 @@
     "@angular/http": "5.2.9",
     "@angular/platform-browser": "5.2.9",
     "@angular/platform-browser-dynamic": "5.2.9",
+    "@ionic-native/browser-tab": "^4.6.0",
+    "@ionic-native/call-number": "^4.6.0",
     "@ionic-native/core": "4.5.3",
+    "@ionic-native/diagnostic": "^4.6.0",
+    "@ionic-native/email-composer": "^4.6.0",
+    "@ionic-native/geolocation": "^4.6.0",
+    "@ionic-native/in-app-browser": "^4.6.0",
+    "@ionic-native/launch-navigator": "^4.6.0",
+    "@ionic-native/network": "^4.6.0",
+    "@ionic-native/social-sharing": "^4.6.0",
     "@ionic-native/splash-screen": "4.5.3",
-    "@ionic-native/status-bar": "4.5.3",
+    "@ionic-native/status-bar": "^4.5.3",
     "@ionic/storage": "2.1.3",
+    "call-number": "^1.0.1",
+    "cordova-android": "6.3.0",
+    "cordova-plugin-actionsheet": "^2.3.3",
+    "cordova-plugin-browsertab": "^0.2.0",
+    "cordova-plugin-compat": "^1.2.0",
+    "cordova-plugin-device": "^2.0.1",
+    "cordova-plugin-dialogs": "^2.0.1",
+    "cordova-plugin-email-composer": "^0.8.15",
+    "cordova-plugin-geolocation": "^4.0.1",
+    "cordova-plugin-inappbrowser": "^2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-network-information": "^2.0.1",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.1",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-x-socialsharing": "^5.3.2",
+    "cordova.plugins.diagnostic": "^4.0.3",
+    "es6-promise-plugin": "^4.2.2",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
+    "leaflet": "^1.3.1",
+    "leaflet.tilelayer.fallback": "^1.0.3",
+    "mx.ferreyra.callnumber": "~0.0.2",
     "rxjs": "5.5.7",
     "sw-toolbox": "3.6.0",
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": "^4.1.5",
     "zone.js": "0.8.20"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-browsertab": {},
+      "cordova-plugin-inappbrowser": {},
+      "mx.ferreyra.callnumber": {},
+      "cordova-plugin-email-composer": {},
+      "cordova-plugin-statusbar": {},
+      "cordova.plugins.diagnostic": {},
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
+      },
+      "uk.co.workingedge.phonegap.plugin.launchnavigator": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }

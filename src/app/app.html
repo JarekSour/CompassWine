@@ -1,18 +1,70 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
-
+<ion-menu [content]="content" id="menuSlide">
+    <ion-content style="background-color: #a8275f;">
+        <div class="box-list">
+            <ion-row class="text-center" style="padding: 20px 5px 20px 5px;">
+                <ion-col col-1></ion-col>
+                <ion-col col-10>
+                    <img src="assets/images/logo_wide.png">
+                </ion-col>
+            </ion-row>
+        </div>
+        <ion-list>
+            <button menuClose ion-item icon-left (click)="goToPage('valles')" class="btn-trans btn-menu txt-btn-sidebar">
+                <div class="display-flex">
+                    <img src="assets/images/icon_places.png" style="height: 22px;">
+                    <span style="margin: 3px 0 0 10px;">Valles</span>
+                </div>
+            </button>
+            <button menuClose ion-item icon-left (click)="goToPage('top_vina')" class="btn-trans btn-menu txt-btn-sidebar">
+                <div class="display-flex">
+                    <img src="assets/images/icon_vineyard.png" style="height: 22px;">
+                    <span style="margin: 3px 0 0 10px;">Top Viñas</span>
+                </div>
+            </button>
+            <button menuClose ion-item icon-left (click)="goToPage('just_wine')" class="btn-trans btn-menu txt-btn-sidebar">
+                <div class="display-flex">
+                    <img src="assets/images/icon_map.png" style="height: 22px;">
+                    <span style="margin: 3px 0 0 10px;">Just Wine</span>
+                </div>
+            </button>
+            <button menuClose ion-item icon-left (click)="goToPage('favoritos')" class="btn-trans btn-menu txt-btn-sidebar">
+                <div class="display-flex">
+                    <img src="assets/images/icon_favorite.png" style="height: 22px;">
+                    <span style="margin: 3px 0 0 10px;">Favoritos</span>
+                </div>
+            </button>
+            <button menuClose ion-item icon-left (click)="goToPage('perfil')" class="btn-trans btn-menu txt-btn-sidebar">
+                <div class="display-flex">
+                    <img src="assets/images/icon_profile.png" style="height: 22px;">
+                    <span style="margin: 3px 0 0 10px;">Perfil</span>
+                </div>
+            </button>
+            <button menuClose ion-item icon-left (click)="goToPage('buscar')" class="btn-trans btn-menu txt-btn-sidebar">
+                <div class="display-flex">
+                    <img src="assets/images/icon_search.png" style="height: 22px;">
+                    <span style="margin: 3px 0 0 10px;">Buscar</span>
+                </div>
+            </button>
+            <button menuClose ion-item icon-left (click)="goToPage('tours')" class="btn-trans btn-menu txt-btn-sidebar">
+                <div class="display-flex">
+                    <img src="assets/images/icon_all_packs.png" style="height: 22px;">
+                    <span style="margin: 3px 0 0 10px;">Tours del vino</span>
+                </div>
+            </button>
+            <button menuClose ion-item icon-left (click)="goToPage('acerca')" class="btn-trans btn-menu txt-btn-sidebar">
+                <div class="display-flex">
+                    <img src="assets/images/icon_help.png" style="height: 22px;">
+                    <span style="margin: 3px 0 0 10px;">Acerca</span>
+                </div>
+            </button>
+            <button menuClose ion-item icon-left (click)="closeSesion()" class="btn-trans btn-menu txt-btn-sidebar">
+                <div class="display-flex">
+                    <ion-icon name="power" style="margin-top: 3px;font-size: 23px;"></ion-icon>
+                    <span style="margin: 3px 0 0 10px;">Cerrar sesión</span>
+                </div>
+            </button>
+        </ion-list>
+    </ion-content>
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->

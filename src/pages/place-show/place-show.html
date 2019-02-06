@@ -1,0 +1,132 @@
+<ion-header>
+    <ion-navbar color="wine" style="border-top: 4px solid white;">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <div style="display: inline-flex;">
+                <img src="assets/images/icon.png" height="30" style="margin: 8px 15px 0 0;">
+                <p style="height: 0px;margin-top: 12px;">{{vineyard.name}}</p>
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-slides style="height: 120px;">
+        <ion-slide>
+            <img [src]="vineyard.picture_1 || 'assets/images/default.png'" (error)="errorHandler($event)">
+        </ion-slide>
+        <ion-slide>
+            <img [src]="vineyard.picture_2 || 'assets/images/default.png'" (error)="errorHandler($event)">
+        </ion-slide>
+        <ion-slide>
+            <img [src]="vineyard.picture_3 || 'assets/images/default.png'" (error)="errorHandler($event)">
+        </ion-slide>
+    </ion-slides>
+    <p style="font-size: 15px;">{{vineyard.description}}</p>
+    <hr>
+    <div>
+        <ion-row>
+            <ion-col col-3 style="margin-top: 3px;color: #404040;">Agregar a favoritos</ion-col>
+            <ion-col col-1>
+                <ion-icon *ngIf="star" style="font-size: 40px;color: #870d29" name="star" (click)="favUnset()"></ion-icon>
+                <ion-icon *ngIf="!star" style="font-size: 40px;" name="star-outline" (click)="favSet()"></ion-icon>
+            </ion-col>
+            <ion-col col-8>
+                <div class="cup">
+                    <img (click)="ratingSet(1)" [src]="vineyard.rating == 0.5 ? 'assets/images/rating_middle.png': vineyard.rating > 0.5 ? 'assets/images/rating_full.png' : 'assets/images/rating_empty.png'"
+                        style="width: 17px;">
+                    <img (click)="ratingSet(2)" [src]="vineyard.rating == 1.5 ? 'assets/images/rating_middle.png': vineyard.rating > 1.5 ? 'assets/images/rating_full.png' : 'assets/images/rating_empty.png'"
+                        style="width: 17px;">
+                    <img (click)="ratingSet(3)" [src]="vineyard.rating == 2.5 ? 'assets/images/rating_middle.png': vineyard.rating > 2.5 ? 'assets/images/rating_full.png' : 'assets/images/rating_empty.png'"
+                        style="width: 17px;">
+                    <img (click)="ratingSet(4)" [src]="vineyard.rating == 3.5 ? 'assets/images/rating_middle.png': vineyard.rating > 3.5 ? 'assets/images/rating_full.png' : 'assets/images/rating_empty.png'"
+                        style="width: 17px;">
+                    <img (click)="ratingSet(5)" [src]="vineyard.rating == 4.5 ? 'assets/images/rating_middle.png': vineyard.rating > 4.5 ? 'assets/images/rating_full.png' : 'assets/images/rating_empty.png'"
+                        style="width: 17px;">
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+    <hr>
+    <div *ngIf="isPack" (click)="buyTicket()">
+        <ion-row style="background-color: #a8275f;height: 22px;margin-top: 60px;">
+            <ion-col col-6 style="font-size: 12px;color: white;padding-left: 43px;">CLP {{vineyard.price_pesos_cl}}</ion-col>
+            <ion-col col-6 style="font-size: 12px;color: white;padding-right: 43px;" class="text-right">USD {{vineyard.price_dolar}}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6 style="font-size: 9px;color: #a8275f;">Preciona para ver formas de pago</ion-col>
+            <ion-col col-6 style="font-size: 9px;color: #a8275f;" class="text-right">Press to choose payment method</ion-col>
+        </ion-row>
+        <div class="text-center" style="margin-top: -95px;margin-bottom: 20px;">
+            <img src="assets/images/boton_comprar.png" style="height: 100px;" >
+        </div>
+    </div>
+
+    <div style="display: flex;">
+        <p style="font-size: 16px;flex-grow: 1;">Comparte este lugar</p>
+        <button ion-button icon-only color="my-fb" style="border-radius: 33px;height: 40px;width: 40px;" (click)="shareFacebook()">
+            <ion-icon name="logo-facebook" style="font-size: 23px;"></ion-icon>
+        </button>
+        <button ion-button icon-only color="my-tw" style="border-radius: 33px;height: 40px;width: 40px;" (click)="shareTwitter()">
+            <ion-icon name="logo-twitter" style="font-size: 23px;"></ion-icon>
+        </button>
+    </div>
+    <hr>
+    <div>
+        <ion-row>
+            <ion-col style="display: inline-grid;padding: 0px;">
+                <div *ngIf="vineyard.phone">
+                    <ion-icon name="call" style="color: #A8275F"></ion-icon>
+                    <a (click)="callTo()" style="color: #A8275F;margin: 4px;font-size: 15px;text-decoration: underline;">
+                        {{vineyard.phone}}</a>
+                </div>
+                <div *ngIf="vineyard.email">
+                    <ion-icon name="mail" style="color: #A8275F"></ion-icon>
+                    <a (click)="emailTo()" style="color: #A8275F;margin: 4px;font-size: 15px;text-decoration: underline;">
+                        {{vineyard.email}}</a>
+                </div>
+                <div *ngIf="vineyard.website">
+                    <ion-icon name="logo-chrome" style="color: #A8275F"></ion-icon>
+                    <a (click)="webTo(vineyard.website)" style="color: #A8275F;margin: 4px;font-size: 15px;text-decoration: underline;">
+                        {{vineyard.website}}</a>
+                </div>
+                <div *ngIf="vineyard.video_url">
+                    <ion-icon name="logo-youtube" style="color: #A8275F"></ion-icon>
+                    <a (click)="videoTo()" style="color: #A8275F;margin: 4px;font-size: 15px;text-decoration: underline;">
+                        {{vineyard.video_url}}</a>
+                </div>
+                <p style="color: #A8275F;margin: 4px;font-size: 15px;">Horario</p>
+                <p style="color: #A8275F;margin: 4px;font-size: 15px;">{{vineyard.schedule}}</p>
+            </ion-col>
+            <ion-col class="text-right" style="padding: 0px;">
+                <button ion-button icon-left (click)="showRoute()" color="wine">
+                    <ion-icon name="car"></ion-icon>
+                    Cómo llegar
+                </button>
+            </ion-col>
+        </ion-row>
+    </div>
+
+    <section>
+        <div class="text-right">
+            <button ion-button icon-left (click)="showModal()" color="wine">
+                Comentar
+            </button>
+        </div>
+        <div *ngIf="vineyard.comments == 0">
+            <p style="color: gray;text-align: center;padding: 19px 10px;">No hay comentarios</p>
+        </div>
+        <div *ngFor="let item of vineyard.comments">
+            <ion-card>
+                <ion-card-content>
+                    <span style="color: #a8275f;">{{item.nickname}}</span>
+                    <span style="color: gray;float: right;font-size: 12px;">{{item.created | date:'hh:mm dd/MM/yyyy'}}</span>
+                    <hr>
+                    <span>{{item.comment}}</span>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </section>
+</ion-content>

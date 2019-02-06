@@ -1,3 +1,14 @@
 page-home {
-
+    ion-content {
+        background-image: url('../assets/images/pattern.jpg');
+        background-color: transparent;
+    }
+    .logo {
+        height: 170px;
+        padding: 10px 0;
+    }
+    .dv-img {
+        flex-grow: 1;
+        text-align: center;
+    }
 }

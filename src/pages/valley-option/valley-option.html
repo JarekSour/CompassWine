@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar color="wine" style="border-top: 4px solid white;">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <div style="display: inline-flex;">
+                <img src="assets/images/icon.png" height="30" style="margin: 8px 15px 0 0;">
+                <p style="height: 0px;margin-top: 12px;">Lugares</p>
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <hr>
+    <div style="display: flex;">
+        <img src="assets/images/ic_place.png" height="30">
+        <p style="margin: 4px 0 0 10px;font-size: 20px;">{{valley.name}}</p>
+    </div>
+    <hr>
+    <div style="display: flex;margin-top: 130px;">
+        <div class="dv-img" style="border-right: 3px dotted #a8275f;" (click)="goTo('vinas')">
+            <img src="assets/images/ic_vineyard.png" height="70" style="margin-top: 15px;">
+            <p style="font-size: 17px;">Viñas</p>
+        </div>
+        <div class="dv-img" (click)="goTo('dormir')">
+            <img src="assets/images/ic_hotel.png" height="70" style="margin-top: 15px;">
+            <p style="font-size: 17px;">Dormir</p>
+        </div>
+    </div>
+    <div style="display: flex;border-top: 3px dotted #a8275f;">
+        <div class="dv-img" style="border-right: 3px dotted #a8275f;" (click)="goTo('comer')">
+            <img src="assets/images/ic_restaurant.png" height="70" style="margin-top: 15px;">
+            <p style="font-size: 17px;">Comer</p>
+        </div>
+        <div class="dv-img" (click)="goTo('actividades')">
+            <img src="assets/images/ic_activity.png" height="70" style="margin-top: 15px;">
+            <p style="font-size: 17px;">Actividades</p>
+        </div>
+    </div>
+</ion-content>

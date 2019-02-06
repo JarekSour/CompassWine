@@ -1,0 +1,13 @@
+page-vineyard-top {
+    ion-content {
+        background-image: url('../assets/images/pattern.jpg');
+        background-color: transparent;
+    }
+    .cup {
+        margin-right: 10px;
+    }
+    .cup img {
+        display: -webkit-inline-box;
+        display: inline-block;
+    }
+}

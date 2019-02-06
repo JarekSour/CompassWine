@@ -1,0 +1,25 @@
+page-profile {
+    ion-content {
+        background-image: url('../assets/images/pattern.jpg');
+        background-color: transparent;
+    }
+    .img-profile {
+        border-radius: 200px;
+        height: 90px;
+        margin: 0 0 0 20px;
+    }
+    hr {
+        border-bottom: 3px dotted #870d29;
+        border-style: dotted;
+        background-color: transparent;
+    }
+    .label {
+        color: #656565;
+        font-size: 13px;
+        margin: 10px 0 0 5px;
+    }
+    .txt {
+        margin: 10px 0 10px 5px;
+        font-size: 17px;
+    }
+}

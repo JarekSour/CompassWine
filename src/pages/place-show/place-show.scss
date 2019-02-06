@@ -1,0 +1,20 @@
+page-place-show {
+    ion-content {
+        background-image: url('../assets/images/pattern.jpg');
+        background-color: transparent;
+    }
+    hr {
+        border-bottom: 3px dotted #870d29;
+        border-style: dotted;
+        background-color: transparent;
+    }
+    .cup {
+        margin-top: 10px;
+        margin-right: 10px;
+        text-align: right;
+    }
+    .cup img {
+        display: -webkit-inline-box;
+        display: inline-block;
+    }
+}

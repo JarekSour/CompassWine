@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar color="wine" style="border-top: 4px solid white;">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <div style="display: inline-flex;">
+                <img src="assets/images/icon.png" height="30" style="margin: 8px 15px 0 0;">
+                <p style="height: 0px;margin-top: 12px;">Buscar</p>
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-searchbar (ionInput)="getItems($event)" placeholder="Buscar"></ion-searchbar>
+    <ion-scroll style="height: 90%" scrollY="true">
+        <ion-list>
+            <section *ngFor="let item of json">
+                <ion-item style="background-color: transparent;" (click)="toDetail(item)">
+                    {{ item.name }}
+                </ion-item>
+            </section>
+        </ion-list>
+    </ion-scroll>
+</ion-content>

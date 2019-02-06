@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar color="wine" style="border-top: 4px solid white;">
+        <ion-title>
+            <div style="display: inline-flex;">
+                <img src="assets/images/icon.png" height="30" style="margin: 8px 15px 0 0;">
+                <p style="height: 0px;margin-top: 12px;">{{param.vineyardName}}</p>
+            </div>
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <span ion-text>Volver</span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <p style="color:#A8275F;margin: 0 0 0 15px;font-size: 20px;">{{param.nickname}}</p>
+    <form (submit)='sendComment()' #comentarioForm="ngForm">
+        <ion-card>
+            <ion-card-content>
+                <h2>Escribe aquí tu comentario</h2>
+                <ion-item>
+                    <ion-textarea rows="20" placeholder="Comentario..." [(ngModel)]="json.Comentario" name="comentario" required>
+                    </ion-textarea>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+        <div text-center>
+            <button ion-button large type="submit" [disabled]="!comentarioForm.form.valid" color="wine" style="width: 95%;">Enviar</button>
+        </div>
+    </form>
+</ion-content>

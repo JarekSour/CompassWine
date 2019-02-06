@@ -1,0 +1,44 @@
+<ion-content padding>
+    <section class="text-center">
+        <img src="assets/images/logo_wide.png" class="logo">
+    </section>
+    <hr>
+    <p class="text-center login">LOGIN</p>
+    <hr>
+    <button ion-button full icon-left class="fb margin-top-10" (click)="loginFBRequest()">
+        <ion-icon name="logo-facebook"></ion-icon>
+        &nbsp;&nbsp;&nbsp;
+        <span>Iniciar sesión con Facebook</span>
+    </button>
+    <section>
+        <ion-item>
+            <ion-label floating>Correo electrónico</ion-label>
+            <ion-input type="email" [(ngModel)]="jsonLogin.email" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Contraseña</ion-label>
+            <ion-input type="password" [(ngModel)]="jsonLogin.pass" name="pass"></ion-input>
+        </ion-item>
+        <div class="margin-top-20">
+            <ion-row>
+                <ion-col offset-6 col-6>
+                    <div class="container" (click)="loginRequest()">
+                        <img src="assets/images/boton.png" style="width:200px ">
+                        <span class="centered">Ingresar</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </div>
+    </section>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <div style="display: flex;">
+            <a class="text-center text-login-left" (click)="goRegister()">Nuevo
+                <br>Usuario</a>
+            <a class="text-center text-login-right" (click)="goRecovery()">Recuperar
+                <br>contraseña</a>
+        </div>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,19 @@
+page-valley-list {
+    ion-content {
+        background-image: url('../assets/images/pattern.jpg');
+        background-color: transparent;
+    }
+    ion-card {
+        position: relative;
+    }
+    .card-title {
+        position: absolute;
+        top: 16%;
+        font-size: 15px;
+        width: 34%;
+        text-align: right;
+        background-color: beige;
+        color: #c53071;
+        padding: 3px 10px 4px 0;
+    }
+}

@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar color="wine" style="border-top: 4px solid white;">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <div style="display: inline-flex;">
+                <img src="assets/images/icon.png" height="30" style="margin: 8px 15px 0 0;">
+                <p style="height: 0px;margin-top: 12px;">Valles</p>
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <section *ngFor="let item of valleys">
+        <ion-card (click)="goTo(item)">
+            <img src="http://admin.compasswineapp.com/uploads/{{item.picture}}" (error)="errorHandler($event)"  />
+            <div class="card-title">{{item.name}}</div>
+        </ion-card>
+    </section>
+</ion-content>

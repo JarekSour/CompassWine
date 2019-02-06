@@ -1,0 +1,24 @@
+page-splash {
+    ion-content {
+        background-image: url('../assets/images/pattern.jpg');
+        background-color: transparent;
+    }
+    ion-spinner * {
+        width: 60px;
+        height: 60px;
+        stroke: #8c0d2b;
+        fill: #8c0d2b;
+    }
+    ion-spinner {
+        width: 60px;
+        height: 60px;
+    }
+    .margin-auto {
+        margin: auto;
+    }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -1,18 +1,29 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar color="wine" style="border-top: 4px solid white;">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <div style="display: inline-flex;">
+                <img src="assets/images/icon.png" height="30" style="margin: 8px 15px 0 0;">
+                <p style="height: 0px;margin-top: 12px;">Compass Wine</p>
+            </div>
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+    <section class="text-center margin-top-30 margin-bottom-20">
+        <img src="assets/images/logo_wide.png" class="logo">
+    </section>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <div class="text-center" style="margin-top: 15px;margin-bottom: 15px;" (click)="goTo('valley_list')">
+        <img src="assets/images/icon_main_cities.png" height="100">
+        <p style="font-size: 17px;">VALLES</p>
+    </div>
+    <div class="text-center" style="margin: 15px 60px 15px 60px;border-top: 3px dotted #a8275f;" (click)="goTo('vineyard_top')">
+        <img src="assets/images/icon_main_vineyards.png" height="100" style="margin-top: 15px;">
+        <p style="font-size: 17px;">TOP TEN
+            <br>VIÑAS</p>
+    </div>
 </ion-content>

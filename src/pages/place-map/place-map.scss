@@ -1,0 +1,34 @@
+page-place-map {
+    ion-content {
+        background-image: url('../assets/images/pattern.jpg');
+        background-color: transparent;
+    }
+    .img-footer {
+        flex-grow: 1;
+        background-color: #bb233f;
+    }
+    .img-footer-active {
+        background-color: #82172b;
+    }
+    #map {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+    hr {
+        border-bottom: 3px dotted #870d29;
+        border-style: dotted;
+        background-color: transparent;
+    }
+    .leaflet-right {
+        display: none;
+    }
+    .leaflet-popup-content-wrapper,
+    .leaflet-popup-tip {
+        background-color: #870d29;
+    }
+    .auto {
+        width: 70px;
+        margin: 7px 0 0 0;
+    }
+}
